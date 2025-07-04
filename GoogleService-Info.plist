@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAsMVJN76SUO83ptiCB9YKH4OPz8HwF_dQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>703350531295</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.splitmate.app</string>
+	<key>PROJECT_ID</key>
+	<string>splitmate-app-a304a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>splitmate-app-a304a.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:703350531295:ios:9695d921d4c11f7ef6756a</string>
+</dict>
+</plist>

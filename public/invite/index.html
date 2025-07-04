@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SplitMate Invite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Get the invite ID from the URL
+        const path = window.location.pathname;
+        const inviteId = path.split('/').pop();
+        
+        // Redirect to the app with the invite ID
+        if (inviteId) {
+            // Try to open the app first
+            window.location.href = `splitmate://invite/${inviteId}`;
+            
+            // If the app doesn't open within 2 seconds, redirect to the app store
+            setTimeout(() => {
+                // Check if we're on iOS or Android
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                const isAndroid = /Android/.test(navigator.userAgent);
+                
+                if (isIOS) {
+                    window.location.href = 'https://apps.apple.com/app/splitmate';
+                } else if (isAndroid) {
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.splitmate.app';
+                }
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif;">
+        <div style="text-align: center;">
+            <h1>Opening SplitMate...</h1>
+            <p>If the app doesn't open automatically, please install SplitMate from your app store.</p>
+        </div>
+    </div>
+</body>
+</html> 
