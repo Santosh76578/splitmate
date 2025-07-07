@@ -40,6 +40,9 @@ import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
 import NotificationService from './src/services/NotificationService';
 import CustomSplash from './src/components/CustomSplash';
+import SplashScreen from './src/screens/SplashScreen';
+import WebViewScreen from './src/screens/WebViewScreen';
+
 import { validateGroupAccess } from './src/utils/groupValidation';
 
 const Stack = createNativeStackNavigator();
@@ -534,7 +537,7 @@ function AppContent() {
   }, [user]);
 
   if (isLoading || loading) {
-    return <CustomSplash />;
+    return <CustomSplash onNavigateToOnboarding={() => setIsLoading(false)} />;
   }
 
   return (
@@ -543,6 +546,8 @@ function AppContent() {
         <AppProvider>
           <NavigationContainer ref={navigationRef} linking={linking}>
             <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Splash" component={SplashScreen} />
+              <Stack.Screen name="WebView" component={WebViewScreen} />
               {!hasCompletedOnboarding ? (
                 <Stack.Screen name="Onboarding">
                   {props => <OnboardingScreen {...props} onComplete={(nav) => handleOnboardingComplete(props.navigation)} />}
@@ -581,9 +586,10 @@ function AppContent() {
                   <Stack.Screen name="ExpenseScreen" component={ExpensesScreen} />
                   <Stack.Screen name="Signup" component={SignupScreen} />
                   <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+                  <Stack.Screen name="Login" component={LoginScreen} />
                 </>
               ) : (
-                <Stack.Screen name="Auth" component={AuthNavigator} />
+                <Stack.Screen name="AuthNavigator" component={AuthNavigator} />
               )}
             </Stack.Navigator>
           </NavigationContainer>
